@@ -32,3 +32,5 @@ Digits were converted to odd/even (1/0) sequences, then tested for balance, loca
 4. Run in **R (≥ 4.0)** with the following packages installed:
    ```r
    install.packages(c("data.table", "ggplot2"))
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17477614.svg)](https://doi.org/10.5281/zenodo.17477614)
