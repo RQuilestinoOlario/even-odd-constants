@@ -1,5 +1,4 @@
 # ============================================================
-# The Odds of Being Even—and the Evens of Being Odd?—in Mathematical Constants
 # Batch analyzer for 10,000,000 digits of: π, e, φ, √2, √3, ln 2, ln 10, Catalan G, Euler γ
 # ============================================================
 
@@ -141,7 +140,7 @@ analyze_constant <- function(digits, name, win = 1e4L, block = 1e6L, kmax = 5L, 
   blks <- lapply(2:kmax, function(k) block_parity_test(p, k = k))
   # Digit frequencies
   d0 <- digit_freq(digits)
-  # Downsample D(n) for plotting (every sample_every)
+  # Downsample D(n) for plotting
   keep <- seq(sample_every, N, by = sample_every)
   D_samp <- data.table(n = keep, D = D[keep], name = name)
   
@@ -174,7 +173,6 @@ analyze_constant <- function(digits, name, win = 1e4L, block = 1e6L, kmax = 5L, 
 }
 
 # ---------------- Paths ----------------
-# Replace the paths below with the files you downloaded from NumberWorld:
 paths <- list(
   "π"                 = "pi.txt",
   "e"                 = "e.txt",
@@ -266,14 +264,14 @@ dev <- copy(all_digits)[
 ][
   , `:=`(
     digit    = factor(digit, levels = 0:9),
-    dev_prop = prop - 0.1,           # + above 0.1, – below 0.1
-    dev_bp   = (prop - 0.1) * 1e4    # basis points for right axis
+    dev_prop = prop - 0.1,           
+    dev_bp   = (prop - 0.1) * 1e4    
   )
 ]
 
 # Auto-zoom around 0.1 so tiny bars are visible
 max_bp <- max(abs(dev$dev_bp))
-ylim <- 0.1 + c(-1, 1) * 1.2 * max_bp / 1e4  # add 20% headroom
+ylim <- 0.1 + c(-1, 1) * 1.2 * max_bp / 1e4  
 
 p <- ggplot(dev, aes(digit)) +
   geom_segment(aes(xend = digit, y = 0.1, yend = 0.1 + dev_prop),
