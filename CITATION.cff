@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+title: "even-odd-constants: Parity analysis of decimal expansions of mathematical constants"
+authors:
+  - family-names: Quilestino-Olario
+    given-names: Raven
+    orcid: "https://orcid.org/0000-0002-1925-2772" 
+version: "1.0.0"
+date-released: "2025-10-29"
+license: MIT
+repository-code: "https://github.com/RQuilestinoOlario/even-odd-constants"
+keywords: [parity, digits, pi, e, golden ratio, normality, randomness, R]
